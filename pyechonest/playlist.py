@@ -48,7 +48,7 @@ def basic(type='artist-radio', artist_id=None, artist=None, song_id=None, song=N
     limit = str(limit).lower()
     dmca = str(dmca).lower()
 
-    kwargs = locals()
+    kwargs = locals().copy()
     kwargs['bucket'] = kwargs['buckets']
     del kwargs['buckets']
     kwargs['genre'] = kwargs['genres']
@@ -199,7 +199,7 @@ def static(type='artist', artist_pick='song_hotttnesss-desc', variety=.5, artist
     if source_catalog and isinstance(source_catalog, catalog.Catalog):
         source_catalog = source_catalog.id
     dmca = str(dmca).lower()
-    kwargs = locals()
+    kwargs = locals().copy()
     kwargs['bucket'] = kwargs['buckets'] or []
     del kwargs['buckets']
     kwargs['genre'] = kwargs['genres']
